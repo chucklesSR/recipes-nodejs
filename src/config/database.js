@@ -5,7 +5,8 @@ const conn = async() => {
     try{
         await mongoose.connect('mongodb://localhost/recipes',{
             useUnifiedTopology: true,
-            useNewUrlParser: true
+            useNewUrlParser: true,
+            useFindAndModify: true
         })
         console.log('database is connected')
     }
