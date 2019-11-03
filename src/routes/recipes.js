@@ -20,6 +20,27 @@ router.get('/recipes', isAuthenticated, async ( req, res ) => {
 
 })
 
+router.get('/recipes/:sort', isAuthenticated, async ( req, res ) => {
+    let recipes = ''
+    if(req.params.sort=='date'){
+        recipes = await Recipe.find().sort({date: 'desc'})
+    }
+    else{
+        recipes = await Recipe.find().sort({title: 'asc'})
+    }
+    res.render('recipes/list-recipes', { recipes })
+
+})
+
+router.post('/recipes/find', isAuthenticated, async ( req, res ) => {
+
+    const { search } = req.body
+    const recipes = await Recipe.find({title: { $regex: '.*' + search + '.*' }}).sort({date: 'desc'})
+    console.log(recipes)
+    res.render('recipes/list-recipes', { recipes } )
+
+})
+
 router.get('/recipes/edit/:id', isAuthenticated, async ( req, res ) =>{
 
     const recipe = await Recipe.findById(req.params.id)
