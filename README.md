@@ -2,7 +2,7 @@
 
 ## recipes CRUD with NodeJS.
 
-### How to Run
+###  - How to Run
 
 - Download and install *Node js*
 - Download and intall *MongoDB*
@@ -11,6 +11,6 @@
 - Run MongoDB
 - Run the command npm start
 
-### Link to use the App in Production
+### - Link to use the App in Production
 
 - https://recipes-nodejs.herokuapp.com/
