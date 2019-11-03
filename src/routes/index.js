@@ -2,11 +2,7 @@ const { Router } = require('express')
 const router = Router()
 
 router.get('/', ( req, res ) => {
-    res.send('hola mundo')
-})
-
-router.get('/about', ( req, res ) => {
-    res.send('about')
+    res.render('index')
 })
 
 module.exports = router

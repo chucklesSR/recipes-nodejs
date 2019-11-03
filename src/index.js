@@ -1,6 +1,4 @@
 const app = require('./app')
-require('./config/database')
-
 
 // Server init
 const init = async () => {

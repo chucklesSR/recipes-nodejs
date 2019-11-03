@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const conn = async() => {
 
     try{
-        await mongoose.connect('mongodb://localhost/recipes',{
+        await mongoose.connect( process.env.DATABASE || 'mongodb://localhost/recipes',{
             useUnifiedTopology: true,
             useNewUrlParser: true,
             useFindAndModify: true
