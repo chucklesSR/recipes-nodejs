@@ -36,7 +36,6 @@ router.post('/recipes/find', isAuthenticated, async ( req, res ) => {
 
     const { search } = req.body
     const recipes = await Recipe.find({title: { $regex: '.*' + search + '.*' }}).sort({date: 'desc'})
-    console.log(recipes)
     res.render('recipes/list-recipes', { recipes } )
 
 })
