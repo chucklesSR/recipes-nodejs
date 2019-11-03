@@ -20,6 +20,15 @@ router.get('/recipes', isAuthenticated, async ( req, res ) => {
 
 })
 
+router.post('/recipes/:imgId/likes', isAuthenticated, async ( req, res ) => {
+    const recipe = await Recipe.findOne({filename: {$regex: req.params.imgId}})
+    if(recipe){
+        recipe.likes = recipe.likes + 1
+        recipe.save()
+        res.redirect('/recipes')
+    }
+})
+
 router.get('/recipes/:sort', isAuthenticated, async ( req, res ) => {
     let recipes = ''
     if(req.params.sort=='date'){

@@ -5,6 +5,7 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 const flash = require('connect-flash')
 const passport = require('passport')
+const multer = require('multer')
 
 //Initializations
 const app = express()
@@ -34,6 +35,7 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
+app.use(multer({dest: path.join(__dirname, 'public/upload/temp')}).single('image'))
 
 //Global Variables
 app.use(( req, res, next ) =>{
