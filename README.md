@@ -1,6 +1,6 @@
 # recipes-nodejs
 
-* ## recipes CRUD with NodeJS.*
+* ## recipes CRUD with NodeJS.
 
 ###  - How to Run
 
